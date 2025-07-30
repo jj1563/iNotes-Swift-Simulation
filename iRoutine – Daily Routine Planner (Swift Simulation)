@@ -1,0 +1,43 @@
+import Foundation
+
+class DailyRoutinePlanner {
+    private var routine: [String] = []
+
+    func addTask(_ task: String) {
+        routine.append(task)
+        print("Task added: \(task)")
+    }
+
+    func deleteTask(at index: Int) {
+        if index >= 0 && index < routine.count {
+            let removed = routine.remove(at: index)
+            print("Task removed: \(removed)")
+        } else {
+            print("Invalid index")
+        }
+    }
+
+    func viewRoutine() {
+        print("\n🗓️ Daily Routine Schedule:")
+        for (index, task) in routine.enumerated() {
+            print("\(index + 1). \(task)")
+        }
+    }
+}
+
+// Simulating Daily Routine
+let myRoutine = DailyRoutinePlanner()
+
+myRoutine.addTask("Wake up at 5:00 AM")
+myRoutine.addTask("Exercise and fresh up (5:00 AM – 6:00 AM)")
+myRoutine.addTask("Study Python/Data Science (6:00 AM – 8:00 AM)")
+myRoutine.addTask("College/Work (9:00 AM – 5:00 PM)")
+myRoutine.addTask("Apply for Jobs / Interview Prep (6:00 PM – 8:00 PM)")
+myRoutine.addTask("Project Development – iOS Simulation (8:00 PM – 9:30 PM)")
+myRoutine.addTask("Sleep early (before 10:00 PM)")
+
+myRoutine.viewRoutine()
+
+// Remove a completed task (e.g., at index 2: Study Python)
+myRoutine.deleteTask(at: 2)
+myRoutine.viewRoutine()
